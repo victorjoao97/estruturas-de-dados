@@ -10,7 +10,7 @@ struct Conta
 
 int main()
 {
-	int op, contador = 0;
+	int op, contador = 1;
 	
 	float menorSaldo = 9999999.9;
 	int posMenorSaldo = 0;
@@ -25,14 +25,14 @@ int main()
 		switch(op)
 		{
 			case 1:
-				if(contador < 3){
-					for (int i = 0; i < 3; i++){
+				if(contador < 15){
+					for (int i = 0; i < 15; i++){
 						int numConta;
 						printf("\nDigite o numero da conta: ");
 						scanf("%d", &numConta);
 						
 						bool existeConta = false;
-						for(int j = 0; j < 3; j++){
+						for(int j = 0; j < 15; j++){
 							if(numConta == contas[j].numConta){
 								printf("\nJa existe uma conta com este numero\n");
 								i--;
@@ -53,12 +53,13 @@ int main()
 						}
 					}
 					printf("\nConta cadastrada com sucesso");
+					contador++;
 				}else{
 					printf("Voce ja cadastrou o total de contas");
 				}
 				break;
 			case 2:
-				for (int i = 0; i < 3; i++){
+				for (int i = 0; i < 15; i++){
 					printf("\n\nDados da conta");
 					printf("\nNumero da conta: %d", contas[i].numConta);
 					printf("\nNome do cliente: %s", contas[i].nomeCliente);
@@ -72,7 +73,7 @@ int main()
 				fflush(stdin);
 				gets(nomeCliente);
 				
-				for (int i = 0; i < 3; i++){
+				for (int i = 0; i < 15; i++){
 					if(strcmp(contas[i].nomeCliente, nomeCliente) == 0){
 						printf("Dados da conta");
 						printf("\nNumero da conta: %d", contas[i].numConta);
@@ -82,7 +83,7 @@ int main()
 				}
 				break;
 			case 4:
-				for (int i = 0; i < 3; i++){
+				for (int i = 0; i < 15; i++){
 					if(contas[i].saldo < menorSaldo){
 						menorSaldo = contas[i].saldo;
 						posMenorSaldo = i;
